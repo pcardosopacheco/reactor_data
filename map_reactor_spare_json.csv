@@ -1,0 +1,11 @@
+REACTOR,Spare Json,Comments
+Registration Numner,externalNumericId,
+First Name,firstName,
+Last Name,lastName,
+Telephone,phoneNumber,change 1204XXXXXXX to (204)XXX-XXXX
+Telephone Ext,-,"only customers from RM have the Extension, Spare does not have this field"
+Email,email,
+Mailing Address,{mailing_address_unit}-{mailing_address},{mailing_address_unit}-{mailing_address} if mailing_address_unit else mailing_address
+City/Town,mailing_city,
+Province/State,mailing_province_state,
+Postal/Zip Code,mailing_postal_zip_code,
