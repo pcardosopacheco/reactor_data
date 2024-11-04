@@ -100,9 +100,6 @@ def process_rider_row(rider):
     """
     logging.info(f"Processing rider: {rider.get('externalNumericId', 'N/A')}")
     metadata = rider.get('metadata', {})
-    if not metadata:
-        logging.warning(f"No metadata found for rider: {rider}")
-        return None
     
     logging.debug(f"Rider metadata: {metadata}")
 
@@ -127,6 +124,7 @@ def process_rider_row(rider):
         metadata.get("mailing_province_state", ""),
         metadata.get("mailing_postal_zip_code", "")
     ]
+    logging.debug(f"Generated row: {row}")
     return row
 
 def process_driver_row(driver):
@@ -183,7 +181,7 @@ def main():
         # Fetch Riders
         riders_url = "https://api.sparelabs.com/v1/riders"
         riders_data = fetch_data(riders_url, 'riders')
-        riders_filename = f"riders_{current_date}.csv"
+        riders_filename = f"riders_v1{current_date}.csv"
         rider_columns = [
             "Registration Number", 
             "First Name", 
